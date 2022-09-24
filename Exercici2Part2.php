@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="ca-ES">
 <body>
 
 <!-- C:\xampp\htdocs  crea carpeta i extra er localhost:80/newPhpProject-->
 <?php
-$hotelExemple = array(
+//Exemple hotel
+/*$hotelExemple = array(
     // 5 plantes
     array(0, 0, 2, 2, 0, 3, 0, 0, 4, 0), //10 habitacions
     array(0, 0, 2, 2, 0, 3, 0, 0, 4, 0),
     array(0, 0, 2, 2, 0, 3, 0, 0, 4, 0),
     array(0, 0, 2, 2, 0, 3, 0, 0, 4, 0),
     array(0, 0, 2, 2, 0, 3, 0, 0, 4, 0),
-);
-// 5 plantas
-//10 habitaciones
-$numPlantes = 5;
-$numHabitacions = 10;
-$hotel = array();
+);*/
+
+$numPlantes = 5; // 5 plantas
+$numHabitacions = 10; //10 habitaciones
+$hotel = array(); // Inicialitza un hotel
 for ($i = 0; $i < $numPlantes; $i++) {
     //Crea temporalment les plantesList
     $plantes = array();
@@ -32,17 +32,28 @@ for ($i = 0; $i < $numPlantes; $i++) {
 
 
 //maxim echo "<h1>",$hotel[4][0][9],"</h1>";
+echo "<h1>Hotel</h1>";
+echo "<h2>Plantes: $numPlantes Habitacions:$numHabitacions</h2>";
 
 for ($row = 0; $row < $numPlantes; $row++) {
-    echo "<p><b>Planta $row</b></p>";
+    echo "<h3>Planta $row</h3>";
     echo "<ul>";
     for ($col = 0; $col < $numHabitacions; $col++) {
         $hospedat = $hotel[$row][0][$col];
-
-        echo "<li>","Habitació: ",$col," Planta: ",$row," Hospedats: ",$hospedat,"</li>" ;
+        //Crec que el zero simbolitza l'array
+        if ($hospedat == 4) {
+            echo "<li>","L'habitació ", $col, " de la planta ", $row, " està plena","</li>";
+        } elseif ($hospedat == 0) {
+            echo "<li>","L'habitació ", $col, " de la planta ", $row, " està buida.","</li>";
+        } else {
+            echo "<li>","A l'habitació ", $col, " de la planta ", $row, " hi ha ", $hospedat, " persones.","</li>";
+        }
+        // echo "<li>", "Habitació: ", $col, " Planta: ", $row, " Hospedats: ", $hospedat, "</li>";
     }
     echo "</ul>";
 }
+
+
 ?>
 
 </body>
