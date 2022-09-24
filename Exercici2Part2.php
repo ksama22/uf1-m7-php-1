@@ -4,29 +4,45 @@
 
 <!-- C:\xampp\htdocs  crea carpeta i extra er localhost:80/newPhpProject-->
 <?php
-$hotel = array();
+$hotelExemple = array(
+    // 5 plantes
+    array(0, 0, 2, 2, 0, 3, 0, 0, 4, 0), //10 habitacions
+    array(0, 0, 2, 2, 0, 3, 0, 0, 4, 0),
+    array(0, 0, 2, 2, 0, 3, 0, 0, 4, 0),
+    array(0, 0, 2, 2, 0, 3, 0, 0, 4, 0),
+    array(0, 0, 2, 2, 0, 3, 0, 0, 4, 0),
+);
 // 5 plantas
 //10 habitaciones
-
-for ($i = 0; $i < 5; $i++) {
-    for ($x = 0; $x < 10; $x++) {
+$numPlantes = 5;
+$numHabitacions = 10;
+$hotel = array();
+for ($i = 0; $i < $numPlantes; $i++) {
+    //Crea temporalment les plantesList
+    $plantes = array();
+    for ($x = 0; $x < $numHabitacions; $x++) {
+        //Emplena random fins a 4 hospedatges
         $rand = rand(0, 4);
-        array_push($hotel, $i, $rand);
+        $plantes[$x] = $rand;
     }
+    //Emplena la llista de plantes al hotel
+    $hotel[$i] = array($plantes);
 }
 
 
-for ($i = 0; $i < 5; $i++) {
-    for ($x = 0; $x < 10; $x++) {
-        echo "Hotel :"+$hotel[$i]  ;
-    }
-}
+function imprimir($var){echo '<pre>';print_r($var);echo '</pre>';}
 
 ?>
-<h1> <?php
 
+    <?php
+    for ($i = 0; $i < $numPlantes; $i++) {
+        //Crea temporalment les plantesList
+        for ($x = 0; $x < $numHabitacions; $x++) {
+        }
+    }
+    imprimir($hotel)
+    ?>
 
-    ?></h1>
 </body>
 </html>
 
